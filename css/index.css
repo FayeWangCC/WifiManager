@@ -1,0 +1,99 @@
+* {
+	/*处理滚横向滚动轴*/
+	overflow-x: hidden;
+}
+
+video {
+	/*设置背景视频的大小和显示方式*/
+	object-fit: cover;
+	width: 100vw;
+	height: 100vh;
+	/*设置视频元素的权重*/
+	z-index: 0;
+}
+
+body {
+	/*设置body为flex布局，让导航条居中*/
+	display: flex;
+	/*通过控制主轴和侧轴让导航条居中*/
+	justify-content: center;
+	align-items: center;
+}
+
+.nav {
+	/*设置导航条元素为flex布局，方便布局子元素*/
+	display: flex;
+	/*设置排列方式*/
+	justify-content: space-between;
+
+	/*让导航条脱标*/
+	position: fixed;
+
+	/*设置导航条大小及样式*/
+	width: 80vw;
+	height: 5vh;
+	background-color: rgba(0, 0, 0, .5);
+	border-radius: 2vh;
+}
+
+/*设置手机端导航条的显示方式*/
+@media screen and (max-width: 600px) {
+	.nav {
+		/*flex布局子元素换行*/
+		flex-wrap: wrap;
+		/*子元素排列方式*/
+		align-content: space-between;
+		/*导航条大小*/
+		width: 33vw;
+		height: 35vh;
+	}
+}
+
+/*设置子元素内a标签*/
+.nav li a {
+	/*将a标签设置为块儿*/
+	display: block;
+	/*设置a标签宽度*/
+	width: 13vw;
+
+	/*设置a标签内容布局方式*/
+	text-align: center;
+	line-height: 5vh;
+
+	/*设置a标签背景*/
+	background-color: rgba(0, 0, 0, 0);
+
+	/*设置a标签字体相关*/
+	color: white;
+	text-decoration: none;
+	font-size: 22px;
+
+	/*设置过渡动画*/
+	transition: all .5s;
+}
+
+/*设置手机端子元素内a标签*/
+@media screen and (max-width: 600px) {
+	.nav li a {
+		/*将a标签设置为块儿*/
+		display: block;
+
+		/*设置a标签宽度及那边距*/
+		width: 33vw;
+		padding: 0 3vw;
+		box-sizing: border-box;
+
+		text-align: left;
+		line-height: 5vh;
+
+		color: white;
+		text-decoration: none;
+		font-size: 18px;
+	}
+}
+
+.nav li:hover a {
+	background-color: rgba(255, 255, 255, .8);
+	color: black;
+	border-radius: 2vh;
+}
